@@ -1,0 +1,314 @@
+/* Reset CSS ====================================*/
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article>*+* {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* conntent ===================================================== */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+    padding: 1.25em;
+    height: 100%;
+}
+
+.menu {
+
+    padding: 1em 0.5em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 0.875em;
+    color: #000;
+}
+
+.menu a {
+
+    text-decoration: none;
+    color: #000;
+}
+
+.menu__link>img {
+
+    max-width: 24px;
+    display: block;
+    margin-left: 2em;
+    margin-right: auto;
+}
+
+.menu li {
+
+    list-style: none;
+    position: relative;
+}
+
+
+
+.menu__list {
+
+    display: flex;
+}
+
+.menu__list>li {
+
+    margin: 0 15px 0 0;
+}
+
+
+.popup__input, .popup__input__inner {
+
+    position: absolute;
+    appearance: none;
+}
+
+.popup__img {
+
+    position: absolute;
+    margin-left: 1em;
+    width: 2em;
+    height: 2em;
+    left: -1em;
+    cursor: pointer;
+    background-image: url(https://raw.githubusercontent.com/kottans/frontend/2022_UA/img/popup-button.png);
+}
+
+
+.sub-menu__container {
+
+    display: none;
+    border: solid 1.5px rgba(41, 38, 38, 0.2);
+    box-shadow: 3px 3px 10px rgba(41, 35, 35, 0.178);
+    border-radius: 1%;
+    position: absolute;
+    right: -2.5em;
+    top: 2.75em;
+    padding: 35px 20px 25px 20px;
+    align-items: center;
+    justify-content: center;
+    width: 18.75em;
+    max-height: 20em;
+    overflow: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 15px;
+    column-gap: 15px;
+}
+
+
+.popup__input::before {
+
+    content: '';
+    z-index: 2;
+    display: none;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+    border-top: solid 1.5px rgba(41, 38, 38, 0.2);
+    border-left: solid 1.5px rgba(41, 38, 38, 0.2);
+    position: absolute;
+    transform: rotate(45deg);
+    top: 2.0em;
+
+}
+
+
+.popup__input:checked~.sub-menu__container {
+
+    display: flex;
+}
+
+.popup__input:checked.popup__input::before {
+
+    display: block;
+}
+
+
+
+.sub-menu__links p {
+
+    text-align: center;
+}
+
+
+
+.sub-menu__links {
+
+    flex: 0 0 3rem;
+    padding: 5px;
+    max-height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-menu__links:hover {
+
+    outline: solid 1px rgba(41, 35, 35, 0.233);
+
+}
+
+
+.sub-menu__links img {
+
+    display: block;
+    max-height: 50px;
+    margin: auto;
+}
+
+.sub-menu__links p {
+
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+}
+
+.sub-menu__links__last {
+
+    flex: 1 0 4em;
+    margin-bottom: -1.5em;
+    font-size: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sub-sub-menu__container {
+
+    padding: 25px 0px 25px 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 25px;
+    column-gap: 25px;
+}
+
+
+.sub-sub-menu__links__last {
+
+    flex: 1 0 4em;
+    margin-bottom: -1.5em;
+    font-size: 0.5rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.popup__input__inner:checked~.sub-sub-menu__container {
+
+    display: flex;
+}
+
+
+
+.popup__input__inner:checked~.sub-sub-menu__links__last {
+
+    display: flex;
+}
+
+
+/* I understand that below is not best solution )) */
+
+.popup__input__inner::after {
+
+    display: none;
+    content: '';
+    position: relative;
+    right: 0;
+    top: -4.5rem;
+    width: 66px;
+    height: 25px;
+    background-color: #fff;
+}
+
+
+.popup__input__inner:checked.popup__input__inner::after {
+
+    display: block;
+}
